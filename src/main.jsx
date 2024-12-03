@@ -13,6 +13,9 @@ import UpdateReview from "./components/UpdateReview";
 import GameWatchlist from "./components/GameWatchlist";
 import NotFound from "./components/NotFound";
 import Root from "./components/Root";
+import { AuthProvider } from "./Context/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +55,7 @@ const router = createBrowserRouter([
         element: <UpdateReview />,
       },
       {
-        path: "/myWatchlist",
+        path: "/game-watchlist",
         element: <GameWatchlist />,
       },
       {
@@ -65,6 +68,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+    <ToastContainer position="top-center" autoClose={2000} />
   </StrictMode>
 );
