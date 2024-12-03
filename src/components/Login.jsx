@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { signInWithGoogle, setLoading } = useContext(AuthContext);
   const emailRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -26,6 +26,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   const handleGooglePopUp = async () => {
+    setLoading(true);
     const result = await signInWithGoogle();
 
     navigate("/");

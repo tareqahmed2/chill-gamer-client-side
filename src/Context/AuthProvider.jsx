@@ -4,9 +4,13 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import app from "../../firebase.init";
+import { FaSpinner } from "react-icons/fa";
+
 import { toast } from "react-toastify";
 const AuthContext = createContext();
 
@@ -19,7 +23,7 @@ const AuthProvider = ({ children }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(userPhoto, userName);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -46,6 +50,7 @@ const AuthProvider = ({ children }) => {
         setUser(user);
         setUserName(user.displayName);
         setUserPhoto(user.photoURL);
+        setLoading(false);
 
         toast.success("Login Successfully");
       })
@@ -68,12 +73,46 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const handleEmailPassSignUp = (email, pass, name, photo) => {
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        return updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        });
+      })
+      .then(() => {
+        setUserName(name);
+        setUserPhoto(photo);
+        setLoading(false);
+        toast.success("User registered successfully!");
+      })
+      .catch((error) => {
+        console.error("Error during user registration:", error.message);
+        toast.error("Registration failed: " + error.message);
+      });
+  };
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <FaSpinner className="animate-spin text-3xl" />
+      </div>
+    );
+  }
+
   const authInfo = {
     user,
     userPhoto,
     userName,
+    setUserName,
+    setUserPhoto,
     signInWithGoogle,
     logOut,
+    handleEmailPassSignUp,
+    setLoading,
   };
 
   return (

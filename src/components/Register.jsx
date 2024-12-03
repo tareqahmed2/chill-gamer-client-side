@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../Context/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
+  const { handleEmailPassSignUp, setUserName, setUserPhoto } =
+    useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -14,6 +17,9 @@ const Register = () => {
 
     const email = form.get("email");
     const password = form.get("password");
+    handleEmailPassSignUp(email, password, name, photoURL);
+
+    navigate("/");
   };
 
   const togglePasswordVisibility = () => {
