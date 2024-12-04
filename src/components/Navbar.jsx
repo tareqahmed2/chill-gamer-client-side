@@ -150,7 +150,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => navigate("/register")}
-                className="btn btn-accent"
+                className="btn btn-accent bg-[#3F00E7] text-white"
               >
                 Register
               </button>

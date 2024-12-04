@@ -5,7 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 const Login = () => {
-  const { signInWithGoogle, setLoading } = useContext(AuthContext);
+  const { signInWithGoogle, setLoading, logInWithEmail } =
+    useContext(AuthContext);
   const emailRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Login = () => {
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = form.get("password");
+    logInWithEmail(email, password, navigate);
   };
 
   const handleForgetRoute = () => {
@@ -35,7 +37,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center my-10 mx-5">
       <div className="card bg-base-100 w-full md:w-3/4 lg:w-3/6 px-2 shrink-0 shadow-2xl">
-        <h2 className="text-2xl my-10 font-bold text-center mb-6 text-[#00BBA6]">
+        <h2 className="text-2xl my-10 font-bold text-center mb-6 text-[#FF00D3]">
           Login Now!
         </h2>
         <form onSubmit={handleLogin} className="card-body">
@@ -83,7 +85,9 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-accent">Login</button>
+            <button className="btn btn-accent border-none bg-[#FF00D3]">
+              Login
+            </button>
           </div>
           <button onClick={handleGooglePopUp} className="btn flex items-center">
             <span>

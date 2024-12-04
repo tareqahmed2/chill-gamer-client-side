@@ -1,7 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useParams,
+} from "react-router-dom";
 import Home from "./components/Home";
 import AllReviews from "./components/AllReviews";
 import ReviewDetails from "./components/ReviewDetails";
@@ -33,6 +37,8 @@ const router = createBrowserRouter([
       {
         path: "/review/:id",
         element: <ReviewDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviews/${params.id}`),
       },
       {
         path: "/login",
@@ -58,6 +64,7 @@ const router = createBrowserRouter([
         path: "/game-watchlist",
         element: <GameWatchlist />,
       },
+
       {
         path: "*",
         element: <NotFound />,

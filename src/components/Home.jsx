@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Banner from "./Banner";
 import HighRated from "./HighRated";
+import TrendingSection from "./TrendingSection";
 
 const Home = () => {
   //   useEffect(() => {
@@ -14,6 +15,7 @@ const Home = () => {
     <div className="w-11/12 mx-auto">
       <Banner></Banner>
       <HighRated></HighRated>
+      <TrendingSection></TrendingSection>
     </div>
   );
 };

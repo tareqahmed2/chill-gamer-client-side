@@ -7,8 +7,8 @@ import {
 } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-10">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-10 ">
+      <div className="container w-11/12 mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center gap-10 md:gap-0">
           {/* Branding */}
           <div className="w-full md:w-1/4 text-center md:text-left">

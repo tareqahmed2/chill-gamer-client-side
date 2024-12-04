@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -9,6 +10,19 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { handleEmailPassSignUp, setUserName, setUserPhoto } =
     useContext(AuthContext);
+  const validatePassword = (password) => {
+    const uppercase = /[A-Z]/.test(password);
+    const lowercase = /[a-z]/.test(password);
+    const length = password.length >= 6;
+
+    if (!uppercase)
+      return "Password must contain at least one uppercase letter.";
+    if (!lowercase)
+      return "Password must contain at least one lowercase letter.";
+    if (!length) return "Password must be at least 6 characters long.";
+
+    return "";
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -17,9 +31,13 @@ const Register = () => {
 
     const email = form.get("email");
     const password = form.get("password");
-    handleEmailPassSignUp(email, password, name, photoURL);
 
-    navigate("/");
+    const passError = validatePassword(password);
+    if (passError) {
+      toast.error(passError);
+      return;
+    }
+    handleEmailPassSignUp(email, password, name, photoURL, navigate);
   };
 
   const togglePasswordVisibility = () => {

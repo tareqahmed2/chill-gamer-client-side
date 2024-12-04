@@ -6,12 +6,14 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   updateProfile,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import app from "../../firebase.init";
 import { FaSpinner } from "react-icons/fa";
 
-import { toast } from "react-toastify";
+import { toast, useToast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -23,6 +25,7 @@ const AuthProvider = ({ children }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [userEmail, setUserEmail] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -30,6 +33,7 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         setUserPhoto(currentUser.photoURL);
         setUserName(currentUser.displayName);
+        setUserEmail(currentUser.email);
       } else {
         setUser(null);
         setUserPhoto(null);
@@ -50,6 +54,7 @@ const AuthProvider = ({ children }) => {
         setUser(user);
         setUserName(user.displayName);
         setUserPhoto(user.photoURL);
+        setUserEmail(user.email);
         setLoading(false);
 
         toast.success("Login Successfully");
@@ -60,6 +65,21 @@ const AuthProvider = ({ children }) => {
 
         console.log(errorCode, errorMessage);
       });
+  };
+  const logInWithEmail = async (email, password, navigate) => {
+    try {
+      setLoading(true);
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setUser(result.user);
+      if (result.user) {
+        navigate("/");
+      }
+      toast.success("Logged in successfully!");
+    } catch (error) {
+      toast.error("Failed to log in!");
+    } finally {
+      setLoading(false);
+    }
   };
   const logOut = async () => {
     try {
@@ -73,7 +93,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  const handleEmailPassSignUp = (email, pass, name, photo) => {
+  const handleEmailPassSignUp = (email, pass, name, photo, navigate) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
@@ -82,17 +102,22 @@ const AuthProvider = ({ children }) => {
         return updateProfile(user, {
           displayName: name,
           photoURL: photo,
+          email: email,
         });
       })
       .then(() => {
         setUserName(name);
         setUserPhoto(photo);
+        setUserEmail(email);
         setLoading(false);
         toast.success("User registered successfully!");
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error during user registration:", error.message);
         toast.error("Registration failed: " + error.message);
+        setLoading(false);
+        navigate("/register");
       });
   };
   if (loading) {
@@ -107,9 +132,11 @@ const AuthProvider = ({ children }) => {
     user,
     userPhoto,
     userName,
+    userEmail,
     setUserName,
     setUserPhoto,
     signInWithGoogle,
+    logInWithEmail,
     logOut,
     handleEmailPassSignUp,
     setLoading,
