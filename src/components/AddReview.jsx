@@ -109,7 +109,7 @@ const AddReview = () => {
           {/* Rating */}
           <div>
             <label className="block text-lg font-medium text-gray-700">
-              Rating (1-5):
+              Rating (1-10):
             </label>
             <input
               type="number"
