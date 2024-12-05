@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Banner from "./Banner";
 import HighRated from "./HighRated";
 import TrendingSection from "./TrendingSection";
-
+import { Fade } from "react-awesome-reveal";
 const Home = () => {
   //   useEffect(() => {
   //     fetch("http://localhost:5000/")
@@ -13,9 +13,11 @@ const Home = () => {
   //   }, []);
   return (
     <div className="w-11/12 mx-auto">
-      <Banner></Banner>
-      <HighRated></HighRated>
-      <TrendingSection></TrendingSection>
+      <Fade delay={200} duration={1000}>
+        <Banner></Banner>
+        <HighRated></HighRated>
+        <TrendingSection></TrendingSection>
+      </Fade>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RateCard from "./RateCard";
 import Lottie from "lottie-react";
 import animation from "../animation/animation.json";
+
 const HighRated = () => {
   const [rated, setRated] = useState([]);
   useEffect(() => {
