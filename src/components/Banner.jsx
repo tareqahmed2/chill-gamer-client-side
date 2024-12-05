@@ -18,55 +18,74 @@ const Banner = () => {
     pauseOnHover: true,
   };
 
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="w-full py-12 px-2 bg-gray-800">
       <div className="container mx-auto px-4">
         <Slider {...settings}>
           <div className="relative">
             <div
-              className="w-full h-80  bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
               style={{ backgroundImage: `url(${g1})` }}
             ></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-              <h2 className="text-4xl font-bold mb-4">
-                The Best Gaming Experience
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                Our Highest Rated Games
               </h2>
-              <p className="text-xl mb-6">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6">
                 Discover the top-rated games of 2024, packed with action,
                 adventure, and fun!
               </p>
-              <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <button
+                onClick={() => scrollToSection("highest-section")}
+                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+              >
                 Explore Now
               </button>
             </div>
           </div>
           <div className="relative">
             <div
-              className="w-full h-80  bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
               style={{ backgroundImage: `url(${g2})` }}
             ></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-              <h2 className="text-4xl font-bold mb-4">Unlimited Adventures</h2>
-              <p className="text-xl mb-6">
-                Dive into immersive worlds and create your own legendary tales.
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                Our Trending Games!
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 w-full md:w-11/12 text-center">
+                Discover what’s trending now! Explore the latest favorites, top
+                picks, and must-haves that everyone’s loving this season. Don’t
+                miss out—dive in today!
               </p>
-              <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <button
+                onClick={() => scrollToSection("trending")}
+                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+              >
                 Explore Now
               </button>
             </div>
           </div>
           <div className="relative">
             <div
-              className="w-full h-80  bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
               style={{ backgroundImage: `url(${g3})` }}
             ></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-              <h2 className="text-4xl font-bold mb-4">Join the Action</h2>
-              <p className="text-xl mb-6">
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                Join the Action
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6">
                 Ready to play? Join millions of players and show off your
                 skills!
               </p>
-              <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <button className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                 Explore Now
               </button>
             </div>

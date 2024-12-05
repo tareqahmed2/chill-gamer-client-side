@@ -20,6 +20,7 @@ import Root from "./components/Root";
 import { AuthProvider } from "./Context/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HighRatedCardDetails from "./HighRatedCardDetails";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,10 @@ const router = createBrowserRouter([
         path: "/game-watchlist",
         element: <GameWatchlist />,
       },
-
+      {
+        path: "highRatedCardDetails/:id",
+        element: <HighRatedCardDetails />,
+      },
       {
         path: "*",
         element: <NotFound />,

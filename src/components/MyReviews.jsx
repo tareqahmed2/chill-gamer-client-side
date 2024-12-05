@@ -5,18 +5,18 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const MyReviews = () => {
-  const { userEmail } = useContext(AuthContext);
+  const { userEmail, setLoading } = useContext(AuthContext);
   const [myReview, setMyReview] = useState([]);
-
+  setLoading(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/myReview/${userEmail}`)
+    fetch(`http://localhost:5000/myReviews/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setMyReview(data);
       })
       .catch((error) => console.error("Error fetching reviews:", error));
   }, [userEmail]);
-
+  setLoading(false);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -49,48 +49,53 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="container w-11/12 mx-auto">
-      <h2 className="text-3xl text-purple-600 font-bold my-4">My Reviews</h2>
-      <table className="table my-5 border-2 border-purple-500">
-        <thead className="">
-          <tr className="border-red-400">
-            <th className="border-l-2 border-blue-300">Cover</th>
-            <th className="border-l-2 border-blue-300">Title</th>
-            <th className="border-l-2 border-blue-300">Rating</th>
-            <th className="border-l-2 border-blue-300">Genre</th>
-            <th className="border-l-2 border-blue-300">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {myReview.map((review) => (
-            <tr key={review._id}>
-              <td>
-                <img src={review.cover} alt={review.title} width="50" />
-              </td>
-              <td className="border-l-2 border-blue-300">{review.title}</td>
-              <td className="border-l-2 border-blue-300">{review.rating}</td>
-              <td className="border-l-2 border-r-2 border-blue-300">
-                {review.genre}
-              </td>
-              <td>
-                <Link
-                  to={`/updateReview/${review._id}`}
-                  className="btn btn-primary"
-                >
-                  Update
-                </Link>
+    <div>
+      <h2 className="text-3xl text-center text-purple-600 font-bold my-4">
+        My Reviews
+      </h2>
 
-                <button
-                  onClick={() => handleDelete(review._id)}
-                  className="btn btn-danger ml-2"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="container w-11/12 mx-auto overflow-auto">
+        <table className="table my-5 border-2 border-purple-500">
+          <thead className="">
+            <tr className="border-red-400">
+              <th className="border-l-2 border-blue-300">Cover</th>
+              <th className="border-l-2 border-blue-300">Title</th>
+              <th className="border-l-2 border-blue-300">Rating</th>
+              <th className="border-l-2 border-blue-300">Genre</th>
+              <th className="border-l-2 border-blue-300">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {myReview.map((review) => (
+              <tr key={review._id}>
+                <td>
+                  <img src={review.cover} alt={review.title} width="50" />
+                </td>
+                <td className="border-l-2 border-blue-300">{review.title}</td>
+                <td className="border-l-2 border-blue-300">{review.rating}</td>
+                <td className="border-l-2 border-r-2 border-blue-300">
+                  {review.genre}
+                </td>
+                <td>
+                  <Link
+                    to={`/updateReview/${review._id}`}
+                    className="btn btn-primary"
+                  >
+                    Update
+                  </Link>
+
+                  <button
+                    onClick={() => handleDelete(review._id)}
+                    className="btn btn-danger ml-2"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

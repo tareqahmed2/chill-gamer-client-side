@@ -1,7 +1,9 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const RateCard = ({ rate }) => {
-  const { name, rating, image, description } = rate;
+  const navigate = useNavigate();
+  const { _id, name, rating, image, description } = rate;
 
   return (
     <div className="card w-full lg:w-96 bg-base-100 shadow-xl">
@@ -17,7 +19,10 @@ const RateCard = ({ rate }) => {
         <p className="text-sm text-gray-600">{description}</p>
         <div className="mt-3 flex justify-between items-center">
           <span className="badge badge-primary text-xs">Rating: {rating}</span>
-          <button className="btn btn-sm btn-accent hover:btn-secondary">
+          <button
+            onClick={() => navigate(`highRatedCardDetails/${_id}`)}
+            className="btn btn-sm btn-accent hover:btn-secondary"
+          >
             Explore Details
           </button>
         </div>
