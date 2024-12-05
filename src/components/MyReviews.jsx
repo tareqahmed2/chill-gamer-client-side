@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import { Link } from "react-router-dom"; // For routing to Update Review page
+import { Link, useNavigate } from "react-router-dom"; // For routing to Update Review page
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const MyReviews = () => {
-  const { userEmail, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, userEmail, setLoading } = useContext(AuthContext);
+  if (!user) {
+    navigate("/login");
+  }
   const [myReview, setMyReview] = useState([]);
   setLoading(true);
   useEffect(() => {

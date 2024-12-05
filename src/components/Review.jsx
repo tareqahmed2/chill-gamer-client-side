@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Review = ({ review }) => {
-  const { _id, cover, title, desc, rating } = review;
+  const { _id, cover, title, desc, rating, genre, publishingYear } = review;
 
   return (
     <div className="card w-full lg:w-96 bg-base-100 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
@@ -14,6 +14,8 @@ const Review = ({ review }) => {
         <p className="text-gray-700">
           {desc.length > 100 ? `${desc.substring(0, 100)}...` : desc}
         </p>
+        <p className="text-blue-600 font-bold">{genre}</p>
+        <p className="font-bold text-purple-700">{publishingYear}</p>
         <p className="text-gray-600 mt-3">
           <span className="font-semibold">Rating:</span>{" "}
           <span className="badge badge-secondary p-2 text-white">

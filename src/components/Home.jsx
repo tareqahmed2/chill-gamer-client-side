@@ -15,7 +15,7 @@ const Home = () => {
     <div className="w-11/12 mx-auto">
       <Banner></Banner>
       <HighRated></HighRated>
-      <TrendingSection id="trending"></TrendingSection>
+      <TrendingSection></TrendingSection>
     </div>
   );
 };

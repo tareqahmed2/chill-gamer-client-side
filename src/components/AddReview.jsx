@@ -64,7 +64,7 @@ const AddReview = () => {
         </h2>
 
         <form onSubmit={handleAddReview} className="space-y-6">
-          {/* Game Cover Image/Thumbnail */}
+     
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Game Cover Image/Thumbnail URL:
@@ -78,7 +78,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Game Title */}
+          
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Game Title:
@@ -92,7 +92,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Review Description */}
+        
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Review Description:
@@ -106,7 +106,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Rating */}
+   
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Rating (1-10):
@@ -122,7 +122,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Publishing Year */}
+          
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Publishing Year:
@@ -136,7 +136,7 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Genre Dropdown */}
+       
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Genre:
@@ -154,7 +154,7 @@ const AddReview = () => {
             </select>
           </div>
 
-          {/* User Email (Read-only) */}
+        
           <div>
             <label className="block text-lg font-medium text-gray-700">
               User Email:

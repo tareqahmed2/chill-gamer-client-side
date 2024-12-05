@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RateCard from "./RateCard";
-
+import Lottie from "lottie-react";
+import animation from "../animation/animation.json";
 const HighRated = () => {
   const [rated, setRated] = useState([]);
   useEffect(() => {
@@ -12,7 +13,14 @@ const HighRated = () => {
   }, []);
   return (
     <div id="highest-section" className=" w-full mx-auto py-12">
-      <h1 className="text-3xl  font-bold text-center mb-2 text-purple-800 my-5">
+      <div>
+        <Lottie
+          loop={true}
+          animationData={animation}
+          style={{ width: "100px", height: "100px" }}
+        />
+      </div>
+      <h1 className="text-3xl  font-bold text-center  text-purple-800 mb-5">
         Highest Rated Games
       </h1>
       <p className="text-center  text-gray-600 font-bold mb-10">
@@ -22,6 +30,13 @@ const HighRated = () => {
         {rated.map((game) => (
           <RateCard key={game.id} rate={game} />
         ))}
+      </div>
+      <div className="flex justify-end">
+        <Lottie
+          loop={true}
+          animationData={animation}
+          style={{ width: "100px", height: "100px" }}
+        />
       </div>
     </div>
   );
