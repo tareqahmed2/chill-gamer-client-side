@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import g1 from "../assets/g1.webp";
 import g2 from "../assets/g3.avif";
-import g3 from "../assets/g7.jpg";
+import g3 from "../assets/dev2.avif";
 
 const Banner = () => {
   const settings = {
@@ -79,13 +79,16 @@ const Banner = () => {
             ></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-                Join the Action
+                Feature Developers
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6">
-                Ready to play? Join millions of players and show off your
-                skills!
+                Discover the creators behind gaming's greatest hits, shaping
+                innovation and unforgettable experiences
               </p>
-              <button className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              <button
+                onClick={() => scrollToSection("feature-developer")}
+                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+              >
                 Explore Now
               </button>
             </div>
