@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import HighRated from "./HighRated";
 import TrendingSection from "./TrendingSection";
 import { Fade } from "react-awesome-reveal";
+import Developers from "./Developers";
 const Home = () => {
   //   useEffect(() => {
   //     fetch("http://localhost:5000/")
@@ -17,6 +18,7 @@ const Home = () => {
         <Banner></Banner>
         <HighRated></HighRated>
         <TrendingSection></TrendingSection>
+        <Developers></Developers>
       </Fade>
     </div>
   );
