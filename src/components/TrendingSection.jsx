@@ -4,7 +4,7 @@ const TrendingSection = () => {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/trending")
+    fetch("https://assignment-10-server-site-red.vercel.app/trending")
       .then((res) => res.json())
       .then((data) => {
         setTrending(data);

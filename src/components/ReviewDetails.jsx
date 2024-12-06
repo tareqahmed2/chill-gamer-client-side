@@ -20,7 +20,7 @@ const ReviewDetails = () => {
       userName,
       userEmail,
     };
-    fetch("http://localhost:5000/watchList", {
+    fetch("https://assignment-10-server-site-red.vercel.app/watchList", {
       method: "POST",
       headers: {
         "content-type": "application/json",

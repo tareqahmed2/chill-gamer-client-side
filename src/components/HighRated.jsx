@@ -6,7 +6,7 @@ import animation from "../animation/animation.json";
 const HighRated = () => {
   const [rated, setRated] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch("https://assignment-10-server-site-red.vercel.app/highRated")
       .then((res) => res.json())
       .then((data) => {
         setRated(data);

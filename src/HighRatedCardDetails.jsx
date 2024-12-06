@@ -9,7 +9,9 @@ const HighRatedCardDetails = () => {
   const [ratedData, setRatedData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/highRatedCardDetails/${id}`)
+    fetch(
+      `https://assignment-10-server-site-red.vercel.app/highRatedCardDetails/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setRatedData(data))
       .catch((error) => console.error("Error fetching data:", error));

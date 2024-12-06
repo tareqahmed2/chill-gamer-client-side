@@ -34,13 +34,16 @@ const UpdateReview = () => {
       email,
     };
 
-    fetch(`http://localhost:5000/updateReview/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(UpdateReview),
-    })
+    fetch(
+      `https://assignment-10-server-site-red.vercel.app/updateReview/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(UpdateReview),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

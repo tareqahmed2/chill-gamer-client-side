@@ -34,7 +34,7 @@ const AddReview = () => {
     console.log(newReview);
 
     // send data to the server and database
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://assignment-10-server-site-red.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -64,7 +64,6 @@ const AddReview = () => {
         </h2>
 
         <form onSubmit={handleAddReview} className="space-y-6">
-     
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Game Cover Image/Thumbnail URL:
@@ -78,7 +77,6 @@ const AddReview = () => {
             />
           </div>
 
-          
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Game Title:
@@ -92,7 +90,6 @@ const AddReview = () => {
             />
           </div>
 
-        
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Review Description:
@@ -106,7 +103,6 @@ const AddReview = () => {
             />
           </div>
 
-   
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Rating (1-10):
@@ -122,7 +118,6 @@ const AddReview = () => {
             />
           </div>
 
-          
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Publishing Year:
@@ -136,7 +131,6 @@ const AddReview = () => {
             />
           </div>
 
-       
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Genre:
@@ -154,7 +148,6 @@ const AddReview = () => {
             </select>
           </div>
 
-        
           <div>
             <label className="block text-lg font-medium text-gray-700">
               User Email:

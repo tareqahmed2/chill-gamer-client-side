@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import Developers from "./Developers";
 const Home = () => {
   //   useEffect(() => {
-  //     fetch("http://localhost:5000/")
+  //     fetch("https://assignment-10-server-site-red.vercel.app/")
   //       .then((res) => res.json())
   //       .then((data) => {
   //         console.log(data);
