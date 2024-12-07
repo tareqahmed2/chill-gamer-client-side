@@ -17,7 +17,7 @@ const Home = () => {
           theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-white text-black"
         }`}
       >
-        <ToggleButton />
+        <ToggleButton/>
         <Fade delay={200} duration={1000}>
           <Banner />
           <HighRated />

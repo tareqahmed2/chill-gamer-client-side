@@ -11,7 +11,9 @@ const HighRated = () => {
     fetch("https://assignment-10-server-site-red.vercel.app/highRated")
       .then((res) => res.json())
       .then((data) => {
-        setRated(data);
+        const sortedData = data.sort((a, b) => b.rating - a.rating);
+
+        setRated(sortedData.slice(0, 6));
         setLoading(false);
       })
       .catch(() => setLoading(false));

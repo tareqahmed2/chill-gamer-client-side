@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const Review = ({ review }) => {
   const { _id, cover, title, desc, rating, genre, publishingYear } = review;
-
+  const { user } = useContext(AuthContext);
   return (
     <div className="card w-full lg:w-96 bg-base-100 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
       <figure>
@@ -23,9 +24,11 @@ const Review = ({ review }) => {
           </span>
         </p>
         <div className="card-actions justify-end mt-4">
-          <Link to={`/review/${_id}`} className="btn btn-primary">
-            Explore Details
-          </Link>
+          {user && (
+            <Link to={`/review/${_id}`} className="btn btn-primary">
+              Explore Details
+            </Link>
+          )}
         </div>
       </div>
     </div>
