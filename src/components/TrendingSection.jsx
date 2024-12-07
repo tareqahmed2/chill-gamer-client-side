@@ -2,15 +2,25 @@ import React, { useEffect, useState } from "react";
 
 const TrendingSection = () => {
   const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://assignment-10-server-site-red.vercel.app/trending")
       .then((res) => res.json())
       .then((data) => {
         setTrending(data);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+      .catch(() => setLoading(false));
+  }, [setLoading]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center my-10">
+        <div className="w-8 h-8 border-4 border-dashed rounded-full border-purple-500 border-t-transparent animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div id="trending" className="bg-gray-100 py-10">

@@ -33,7 +33,6 @@ const AddReview = () => {
     };
     console.log(newReview);
 
-    // send data to the server and database
     fetch("https://assignment-10-server-site-red.vercel.app/reviews", {
       method: "POST",
       headers: {

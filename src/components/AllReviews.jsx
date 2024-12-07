@@ -8,7 +8,7 @@ const AllReviews = () => {
   const [filteredReviews, setFilteredReviews] = useState([]);
   const [sortType, setSortType] = useState("rating-asc");
   const [sortStart, setSortStart] = useState(true);
-  const { setLoading } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
 
   if (sortStart) {
     useEffect(() => {
@@ -19,9 +19,10 @@ const AllReviews = () => {
           setFilteredReviews(data);
           setLoading(false);
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => setLoading(false));
     }, []);
   }
+  //
 
   const handleSortChange = (e) => {
     const type = e.target.value;
@@ -52,6 +53,13 @@ const AllReviews = () => {
       setFilteredReviews(filtered);
     }
   };
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-8 h-8 border-4 border-dashed border-purple-800 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="my-10 w-11/12 mx-auto p-6 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg shadow-md">

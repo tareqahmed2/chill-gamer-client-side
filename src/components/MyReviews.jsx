@@ -1,28 +1,36 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import { Link, useNavigate } from "react-router-dom"; // For routing to Update Review page
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const MyReviews = () => {
   const navigate = useNavigate();
-  const { user, userEmail, setLoading } = useContext(AuthContext);
+  const { user, userEmail } = useContext(AuthContext);
+
   if (!user) {
     navigate("/login");
   }
+
   const [myReview, setMyReview] = useState([]);
-  setLoading(true);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://assignment-10-server-site-red.vercel.app/myReviews/${userEmail}`
     )
       .then((res) => res.json())
       .then((data) => {
         setMyReview(data);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching reviews:", error));
+      .catch((error) => {
+        console.error("Error fetching reviews:", error);
+        setLoading(false);
+      });
   }, [userEmail]);
-  setLoading(false);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -50,12 +58,20 @@ const MyReviews = () => {
           .catch((error) => console.error("Error deleting review:", error));
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your review has been deleted.",
           icon: "success",
         });
       }
     });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center my-10">
+        <div className="w-8 h-8 border-4 border-dashed rounded-full border-purple-500 border-t-transparent animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -65,7 +81,7 @@ const MyReviews = () => {
 
       <div className="container w-11/12 mx-auto overflow-auto">
         <table className="table my-5 border-2 border-purple-500">
-          <thead className="">
+          <thead>
             <tr className="border-red-400">
               <th className="border-l-2 border-blue-300">Cover</th>
               <th className="border-l-2 border-blue-300">Title</th>
