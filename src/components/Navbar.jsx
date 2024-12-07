@@ -72,7 +72,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-slate-200 sticky top-0 backdrop-blur-lg z-10 mb-5">
+    <div className="bg-slate-200 sticky top-0 backdrop-blur-lg z-10">
       <div className="navbar w-11/12 mx-auto flex justify-between">
         {/* Navbar Start */}
         <div className="navbar-start w-full md:w-1/4">

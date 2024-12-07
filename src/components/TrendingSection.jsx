@@ -25,7 +25,7 @@ const TrendingSection = () => {
   return (
     <div
       id="trending"
-      className="bg-gradient-to-t from-gray-900 to-purple-900 py-14 text-white"
+      className="bg-gradient-to-t from-gray-900 to-purple-900 py-14  text-white"
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center mb-4">

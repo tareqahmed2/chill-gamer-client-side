@@ -1,26 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
+import ToggleButton from "./ToggleButton";
 import Banner from "./Banner";
 import HighRated from "./HighRated";
 import TrendingSection from "./TrendingSection";
 import { Fade } from "react-awesome-reveal";
 import Developers from "./Developers";
+import { ThemeContext } from "../Context/ThemeProvider";
+
 const Home = () => {
-  //   useEffect(() => {
-  //     fetch("https://assignment-10-server-site-red.vercel.app/")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       });
-  //   }, []);
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="w-11/12 mx-auto">
-      <Fade delay={200} duration={1000}>
-        <Banner></Banner>
-        <HighRated></HighRated>
-        <TrendingSection></TrendingSection>
-        <Developers></Developers>
-      </Fade>
-    </div>
+    <di>
+      <div
+        className={`w-11/12 mx-auto  ${
+          theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-white text-black"
+        }`}
+      >
+        <ToggleButton />
+        <Fade delay={200} duration={1000}>
+          <Banner />
+          <HighRated />
+          <TrendingSection />
+          <Developers />
+        </Fade>
+      </div>
+    </di>
   );
 };
 

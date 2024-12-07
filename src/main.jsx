@@ -21,6 +21,7 @@ import { AuthProvider } from "./Context/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HighRatedCardDetails from "./HighRatedCardDetails";
+import { ThemeProvider } from "./Context/ThemeProvider";
 
 const router = createBrowserRouter([
   {
@@ -82,7 +83,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </AuthProvider>
     <ToastContainer position="top-center" autoClose={2000} />
   </StrictMode>
