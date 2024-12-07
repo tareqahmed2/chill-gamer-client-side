@@ -73,6 +73,7 @@ const TrendingSection = () => {
                   </p>
                 </div>
               </div>
+              {/* didn't get commit */}
             </div>
           ))}
         </div>
