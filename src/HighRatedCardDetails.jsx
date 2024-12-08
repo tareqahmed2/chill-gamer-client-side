@@ -25,7 +25,7 @@ const HighRatedCardDetails = () => {
 
   const { name, description, rating, image, specifications } = ratedData;
   return (
-    <div className="bg-gray-100 min-h-screen py-10 px-4">
+    <div className="min-h-screen py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <div
           className="w-full h-64 bg-cover bg-center"
