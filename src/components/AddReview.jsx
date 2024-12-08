@@ -33,7 +33,7 @@ const AddReview = () => {
     };
     console.log(newReview);
 
-    fetch("https://assignment-10-server-site-red.vercel.app/reviews", {
+    fetch("https://assignment-10-uupdate.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

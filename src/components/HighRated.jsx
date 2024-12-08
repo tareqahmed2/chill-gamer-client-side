@@ -8,7 +8,7 @@ const HighRated = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://assignment-10-server-site-red.vercel.app/highRated")
+    fetch("https://assignment-10-uupdate.vercel.app/highRated")
       .then((res) => res.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => b.rating - a.rating);

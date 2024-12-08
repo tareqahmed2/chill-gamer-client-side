@@ -12,7 +12,7 @@ const AllReviews = () => {
 
   if (sortStart) {
     useEffect(() => {
-      fetch("https://assignment-10-server-site-red.vercel.app/reviews")
+      fetch("https://assignment-10-uupdate.vercel.app/reviews")
         .then((res) => res.json())
         .then((data) => {
           setReviews(data);

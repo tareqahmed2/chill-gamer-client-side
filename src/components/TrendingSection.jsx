@@ -5,7 +5,7 @@ const TrendingSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://assignment-10-server-site-red.vercel.app/trending")
+    fetch("https://assignment-10-uupdate.vercel.app/trending")
       .then((res) => res.json())
       .then((data) => {
         setTrending(data);

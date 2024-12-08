@@ -6,7 +6,7 @@ const Developers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://assignment-10-server-site-red.vercel.app/developers")
+    fetch("https://assignment-10-uupdate.vercel.app/developers")
       .then((res) => res.json())
       .then((data) => {
         setDevelopers(data);

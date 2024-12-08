@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         element: <ReviewDetails />,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-site-red.vercel.app/reviews/${params.id}`
+            `https://assignment-10-uupdate.vercel.app/reviews/${params.id}`
           ),
       },
       {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <GameWatchlist />,
       },
       {
-        path: "highRatedCardDetails/:id",
+        path: "/highRatedCardDetails/:id",
         element: <HighRatedCardDetails />,
       },
       {

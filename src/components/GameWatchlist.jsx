@@ -12,9 +12,7 @@ const GameWatchlist = () => {
     navigate("/login");
   }
   useEffect(() => {
-    fetch(
-      `https://assignment-10-server-site-red.vercel.app/watchlist/${userEmail}`
-    )
+    fetch(`https://assignment-10-uupdate.vercel.app/watchlist/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setWatchList(data);
