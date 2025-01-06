@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import logo from "../assets/logo.jpeg";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-10 ">
@@ -12,7 +13,12 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between items-center gap-10 md:gap-0">
           {/* Branding */}
           <div className="w-full md:w-1/4 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-4">Chill Gamer</h2>
+            <img
+              className="w-16 my-3 h-16 rounded-full cursor-pointer"
+              src={logo}
+              alt="Logo"
+              onClick={() => navigate("/")}
+            />
             <p className="text-sm">
               Innovating for a better tomorrow. Follow us on our journey to
               create an impact.

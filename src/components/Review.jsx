@@ -6,7 +6,7 @@ const Review = ({ review }) => {
   const { _id, cover, title, desc, rating, genre, publishingYear } = review;
   const { user } = useContext(AuthContext);
   return (
-    <div className="card w-full lg:w-96 bg-base-100 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+    <div className="card bg-base-100 shadow-xl w-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 mx-auto my-4">
       <figure>
         <img src={cover} alt={title} className="object-cover w-full h-52" />
       </figure>

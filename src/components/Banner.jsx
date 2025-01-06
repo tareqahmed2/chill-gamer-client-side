@@ -26,12 +26,12 @@ const Banner = () => {
   };
 
   return (
-    <div className="w-full py-12 px-2 bg-gray-800">
+    <div className="w-full py-5 h-[60vh]  px-2 bg-gray-800">
       <div className="container mx-auto px-4">
         <Slider {...settings}>
           <div className="relative">
             <div
-              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[24rem] bg-cover bg-center"
               style={{ backgroundImage: `url(${g1})` }}
             ></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
@@ -52,7 +52,7 @@ const Banner = () => {
           </div>
           <div className="relative">
             <div
-              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[24rem]  bg-cover bg-center"
               style={{ backgroundImage: `url(${g2})` }}
             ></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
@@ -74,7 +74,7 @@ const Banner = () => {
           </div>
           <div className="relative">
             <div
-              className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-cover bg-center"
+              className="w-full h-64 sm:h-80 md:h-96 lg:h-[24rem]  bg-cover bg-center"
               style={{ backgroundImage: `url(${g3})` }}
             ></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center">

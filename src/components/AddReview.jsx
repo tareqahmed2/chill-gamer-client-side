@@ -110,7 +110,7 @@ const AddReview = () => {
               type="number"
               name="rating"
               min="1"
-              max="5"
+              max="10"
               defaultValue="1"
               required
               className="mt-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"

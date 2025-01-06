@@ -29,7 +29,7 @@ const GameWatchlist = () => {
     );
   } else {
     return (
-      <div className="container mx-auto my-5 p-4">
+      <div className="w-11/12 mx-auto my-5 p-4">
         <h1 className="text-3xl font-bold mb-4 text-center text-purple-800">
           Game Watchlist
         </h1>
@@ -65,7 +65,7 @@ const GameWatchlist = () => {
                   }) => (
                     <tr
                       key={_id}
-                      className="hover:bg-gray-100 border border-gray-300"
+                      className="hover:bg-purple-600 border border-gray-300"
                     >
                       <td className="border border-gray-300 px-4 py-2">
                         <img

@@ -40,7 +40,7 @@ const ReviewDetails = () => {
       });
   };
   return (
-    <div className="container mx-auto p-6 my-10">
+    <div className="w-11/12 mx-auto py-6 my-10">
       <div className="flex flex-col md:flex-row items-center space-y-6 md:space-x-8">
         <div className="w-full md:w-1/2">
           <img

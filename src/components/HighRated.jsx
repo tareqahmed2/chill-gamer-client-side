@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import RateCard from "./RateCard";
 import Lottie from "lottie-react";
 import animation from "../animation/animation.json";
+import Review from "./Review";
 
 const HighRated = () => {
   const [rated, setRated] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://assignment-10-uupdate.vercel.app/highRated")
+    fetch("https://assignment-10-uupdate.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         const sortedData = data.sort((a, b) => b.rating - a.rating);
@@ -28,7 +29,7 @@ const HighRated = () => {
   }
 
   return (
-    <div id="highest-section" className="w-full mx-auto py-12">
+    <div id="highest-section" className="w-full mx-auto py-5">
       <div>
         <Lottie
           loop={true}
@@ -42,11 +43,13 @@ const HighRated = () => {
       <p className="text-center text-gray-600 font-bold mb-10">
         Experience the best with our top-rated selections, loved by all!
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {rated.map((game) => (
-          <RateCard key={game.id} rate={game} />
+          // <RateCard key={game.id} rate={game} />
+          <Review key={game._id} review={game}></Review>
         ))}
       </div>
+
       <div className="flex justify-end">
         <Lottie
           loop={true}

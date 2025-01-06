@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.jpeg";
 import { AuthContext } from "../Context/AuthProvider";
+import ToggleButton from "./ToggleButton";
+import { ThemeContext } from "../Context/ThemeProvider";
 
 const Navbar = () => {
   const { user, logOut, userPhoto, userName } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -72,7 +75,11 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-slate-200 sticky top-0 backdrop-blur-lg z-10">
+    <div
+      className={`text-${
+        theme === "dark" ? "black" : "black"
+      } mb-10 bg-slate-200`}
+    >
       <div className="navbar w-11/12 mx-auto flex justify-between">
         {/* Navbar Start */}
         <div className="navbar-start w-full md:w-1/4">
@@ -117,6 +124,7 @@ const Navbar = () => {
 
         {/* Navbar End */}
         <div className="navbar-end w-full flex justify-end items-center gap-4">
+          <ToggleButton />
           {user ? (
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
