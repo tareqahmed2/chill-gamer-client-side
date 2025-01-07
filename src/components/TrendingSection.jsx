@@ -37,7 +37,7 @@ const TrendingSection = () => {
         <p className="text-center text-gray-300 font-medium mb-10">
           Dive into the world of the most popular games making waves right now!
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-2">
           {trending.slice(0, 5).map((game) => (
             // <RateCard key={game.id} rate={game} />
             <Review key={game._id} review={game}></Review>

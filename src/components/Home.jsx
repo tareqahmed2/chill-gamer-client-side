@@ -22,6 +22,7 @@ const Home = () => {
         <HighRated />
         <TrendingSection />
         <UpcomingGames />
+        <Developers></Developers>
       </div>
     </di>
   );

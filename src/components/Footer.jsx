@@ -4,8 +4,23 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaLinkedin,
+  FaFacebook,
+  FaGithub,
 } from "react-icons/fa";
 import logo from "../assets/logo.jpeg";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+const handleSubsCribe = (e) => {
+  e.preventDefault();
+  const email = e.target.email.value;
+  if (!email) {
+    return toast.error("Field the Email feild correctly");
+  }
+
+  e.target.email.value = "";
+  toast.success("Subscribe Successfully!");
+};
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-10 ">
@@ -30,24 +45,19 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="hover:underline">
+                <Link to="/" className="hover:underline">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:underline">
+                <Link to="/about" className="hover:underline">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:underline">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:underline">
+                <Link to="/contact" className="hover:underline">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -55,10 +65,12 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="w-full md:w-1/4">
             <h3 className="text-xl font-semibold mb-4">Stay Updated</h3>
-            <form className="flex flex-col">
+            <form onSubmit={handleSubsCribe} className="flex flex-col">
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
+                required
                 className="px-4 py-2 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-300"
               />
               <button
@@ -75,39 +87,34 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex justify-center md:justify-end space-x-4">
               <a
-                href="#"
-                className="p-2 bg-white text-black rounded-full hover:bg-gray-200"
-                aria-label="Facebook"
+                href="https://github.com/tareqahmed2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-300 transition duration-300"
               >
-                <FaFacebookF />
+                <FaGithub size={30} />
               </a>
               <a
-                href="#"
-                className="p-2 bg-white text-black rounded-full hover:bg-gray-200"
-                aria-label="Twitter"
+                href="https://www.linkedin.com/in/tareq-ahmed-b66293318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-300 transition duration-300"
               >
-                <FaTwitter />
+                <FaLinkedin size={30} />
               </a>
               <a
-                href="#"
-                className="p-2 bg-white text-black rounded-full hover:bg-gray-200"
-                aria-label="Instagram"
+                href="https://www.facebook.com/md.tareq.ahmed.337952?mibextid=ZbWKwL"
+                target="_blank"
+                className="text-white hover:text-blue-300 transition duration-300"
               >
-                <FaInstagram />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white text-black rounded-full hover:bg-gray-200"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn />
+                <FaFacebook size={30} />
               </a>
             </div>
           </div>
         </div>
         {/* Footer Bottom */}
         <div className="mt-10 border-t border-white/50 pt-5 text-center text-sm">
-          © 2024 YourBrand. All Rights Reserved.
+          © 2025 YourBrand. All Rights Reserved.
         </div>
       </div>
     </footer>

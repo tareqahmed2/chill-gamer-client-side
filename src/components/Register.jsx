@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
+import Lottie from "react-lottie"; // Import Lottie
+import registerAnimation from "../animation/register.json"; // Import the animation JSON
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -10,6 +12,7 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { handleEmailPassSignUp, setUserName, setUserPhoto } =
     useContext(AuthContext);
+
   const validatePassword = (password) => {
     const uppercase = /[A-Z]/.test(password);
     const lowercase = /[a-z]/.test(password);
@@ -23,6 +26,7 @@ const Register = () => {
 
     return "";
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -43,9 +47,25 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  // Lottie animation settings
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, // Animation will autoplay
+    animationData: registerAnimation, // Animation JSON file
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice", // Ensures the aspect ratio is maintained
+    },
+  };
+
   return (
     <div className="flex justify-center items-center my-10 mx-5">
       <div className="card bg-base-100 w-full md:w-3/4 lg:w-3/6 shrink-0 shadow-2xl">
+        {/* Lottie Animation */}
+        <div className="flex justify-center mb-6">
+          <Lottie options={defaultOptions} height={200} width={200} />
+        </div>
+
         <h2 className="text-2xl my-10 font-bold text-center mb-2 text-blue-600">
           Register Now!
         </h2>
@@ -94,7 +114,7 @@ const Register = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="password"
-                className="input w-full  input-bordered pr-10"
+                className="input w-full input-bordered pr-10"
                 required
                 name="password"
               />
@@ -116,7 +136,7 @@ const Register = () => {
               <p className="text-red-600 font-bold text-center">{error}</p>
             )}
           </div>
-          <p className="my-5 font-bold">
+          <p className="my-5 font-bold text-center w-11/12 mx-auto">
             Already have an account?{" "}
             <Link className="text-red-500" to="/login">
               Login

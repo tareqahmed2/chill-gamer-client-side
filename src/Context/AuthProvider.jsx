@@ -110,7 +110,7 @@ const AuthProvider = ({ children }) => {
         setUserPhoto(photo);
         setUserEmail(email);
         setLoading(false);
-        toast.success("User registered successfully!");
+        toast.success("Registered successfully!");
         navigate("/");
       })
       .catch((error) => {

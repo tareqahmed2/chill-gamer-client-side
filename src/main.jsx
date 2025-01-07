@@ -22,6 +22,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HighRatedCardDetails from "./HighRatedCardDetails";
 import { ThemeProvider } from "./Context/ThemeProvider";
+import AboutUs from "./components/AboutUs";
+import Contact from "./components/Contact";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/review/:id",
-        element: <ReviewDetails />,
+        element: (
+          <PrivateRoute>
+            <ReviewDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://assignment-10-uupdate.vercel.app/reviews/${params.id}`
@@ -54,19 +61,44 @@ const router = createBrowserRouter([
       },
       {
         path: "/addReview",
-        element: <AddReview />,
+        element: (
+          <PrivateRoute>
+            <AddReview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myReviews",
-        element: <MyReviews />,
+        element: (
+          <PrivateRoute>
+            <MyReviews />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateReview/:id",
-        element: <UpdateReview />,
+        element: (
+          <PrivateRoute>
+            <UpdateReview />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/game-watchlist",
-        element: <GameWatchlist />,
+        element: (
+          <PrivateRoute>
+            <GameWatchlist />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+
+        element: <Contact />,
       },
       {
         path: "/highRatedCardDetails/:id",

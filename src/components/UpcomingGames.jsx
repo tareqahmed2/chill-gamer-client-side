@@ -11,14 +11,13 @@ const UpcomingGames = () => {
       .then((res) => res.json())
       .then((data) => {
         setUpcoming(data);
-        // Initialize timers array based on the number of upcoming games
+
         setTimers(new Array(data.length).fill(0));
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, []);
 
-  // Update countdown timers every second
   useEffect(() => {
     const interval = setInterval(() => {
       const newTimers = upcoming.map((game) => {
@@ -60,19 +59,22 @@ const UpcomingGames = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-purple-800 via-pink-800 to-indigo-800 text-white py-16 my-16 rounded-xl shadow-lg">
+    <section
+      id="upcoming-games"
+      className="bg-gradient-to-r from-purple-800 via-pink-800 to-indigo-800 text-white py-16 my-16 rounded-xl shadow-lg"
+    >
       <div className="container md:px-6 mx-auto text-center">
         <h2 className="text-4xl font-extrabold mb-6 text-yellow-300">
           Upcoming Games
         </h2>
         <p className="mb-12 text-lg md:text-xl text-gray-200">
-          Discover the most anticipated games coming soon to your platform!
+          Discover the most anticipated games coming soon to our platform!
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-2">
           {upcoming.map((game, index) => (
             <div
               key={game.id}
-              className="card bg-gray-800 rounded-lg overflow-hidden shadow-2xl transform transition-all hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 duration-300"
+              className="card bg-gray-800 rounded-lg overflow-hidden shadow-2xl transform transition-all hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-yellow-400 duration-300 "
             >
               <img
                 src={game.cover}

@@ -24,11 +24,11 @@ const Review = ({ review }) => {
           </span>
         </p>
         <div className="card-actions justify-end mt-4">
-          {user && (
+          {
             <Link to={`/review/${_id}`} className="btn btn-primary">
               Explore Details
             </Link>
-          )}
+          }
         </div>
       </div>
     </div>

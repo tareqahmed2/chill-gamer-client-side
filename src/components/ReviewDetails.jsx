@@ -41,8 +41,8 @@ const ReviewDetails = () => {
   };
   return (
     <div className="w-11/12 mx-auto py-6 my-10">
-      <div className="flex flex-col md:flex-row items-center space-y-6 md:space-x-8">
-        <div className="w-full md:w-1/2">
+      <div className="flex flex-col md:flex-col lg:flex-row items-center space-y-6 md:space-x-8">
+        <div className="w-full lg:w-1/2">
           <img
             src={cover}
             alt={title}
@@ -50,9 +50,9 @@ const ReviewDetails = () => {
           />
         </div>
 
-        <div className="w-full md:w-1/2">
+        <div className="w-full lg:w-1/2">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">{title}</h2>
-          <p className="text-lg text-gray-600 mb-4">{desc}</p>
+          <p className="text-lg w-11/12 text-gray-600 mb-4">{desc}</p>
           <p className="text-sm text-gray-500 mb-2">
             <strong>Genre:</strong> {genre}
           </p>

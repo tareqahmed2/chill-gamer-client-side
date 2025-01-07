@@ -30,33 +30,21 @@ const HighRated = () => {
 
   return (
     <div id="highest-section" className="w-full mx-auto py-5">
-      <div>
-        <Lottie
-          loop={true}
-          animationData={animation}
-          style={{ width: "100px", height: "100px" }}
-        />
-      </div>
+      <div></div>
       <h1 className="text-3xl font-bold text-center text-purple-800 mb-5">
         Highest Rated Games
       </h1>
       <p className="text-center text-gray-600 font-bold mb-10">
         Experience the best with our top-rated selections, loved by all!
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  px-2">
         {rated.map((game) => (
           // <RateCard key={game.id} rate={game} />
           <Review key={game._id} review={game}></Review>
         ))}
       </div>
 
-      <div className="flex justify-end">
-        <Lottie
-          loop={true}
-          animationData={animation}
-          style={{ width: "100px", height: "100px" }}
-        />
-      </div>
+      <div className="flex justify-end"></div>
     </div>
   );
 };

@@ -66,7 +66,7 @@ const Navbar = () => {
                 isActive ? "text-accent font-bold" : ""
               }
             >
-              Game WatchList
+              My WatchList
             </NavLink>
           </li>
         </>
@@ -77,14 +77,17 @@ const Navbar = () => {
   return (
     <div
       className={`text-${
-        theme === "dark" ? "black" : "black"
+        theme === "dark" ? "white md:text-black" : "black"
       } mb-10 bg-slate-200`}
     >
       <div className="navbar w-11/12 mx-auto flex justify-between">
         {/* Navbar Start */}
         <div className="navbar-start w-full md:w-1/4">
-          <div className="dropdown lg:hidden">
-            <label tabIndex={0} className="btn btn-ghost px-0 md:px-1">
+          <div className="dropdown  lg:hidden">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost text-black px-0 md:px-1"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -134,15 +137,18 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-32"
               >
-                <li>
+                {/* <li>
                   <span className="font-semibold text-center">
                     {userName || "User"}
                   </span>
-                </li>
+                </li> */}
                 <li>
-                  <button onClick={handleLogout} className="btn btn-error">
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-xs btn-error"
+                  >
                     Log Out
                   </button>
                 </li>
@@ -158,7 +164,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => navigate("/register")}
-                className="btn btn-accent bg-[#3F00E7] text-white"
+                className="btn hidden md:block btn-accent bg-[#3F00E7] text-white"
               >
                 Register
               </button>
