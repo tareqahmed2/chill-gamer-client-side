@@ -32,7 +32,7 @@ const ReviewDetails = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "Review Added Successfully",
+            text: "Review Added Successfully on your WatchList",
             icon: "success",
             confirmButtonText: "Ok",
           });
