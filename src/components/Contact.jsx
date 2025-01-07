@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // Import toast for displaying messages
+import { toast } from "react-toastify"; // For notifications
+import emailjs from "emailjs-com"; // Import EmailJS
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -27,17 +28,39 @@ const Contact = () => {
       return toast.error("Please enter a valid email address.");
     }
 
-    // Handle form submission logic (e.g., send the data to an API)
-    toast.success("Form submitted successfully!");
-    navigate("/");
+    // Send email using EmailJS
+    const serviceID = "service_e1q9brq"; // Replace with your EmailJS service ID
+    const templateID = "template_1odp2do"; // Replace with your EmailJS template ID
+    const publicKey = "11QPmT3w9acjSj3hf"; // Replace with your EmailJS public key
 
-    setFormData({ name: "", email: "", message: "" }); // Reset form data
+    emailjs
+      .send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      )
+      .then(
+        (response) => {
+          toast.success("Message sent successfully!");
+          navigate("/"); // Navigate to another page if needed
+          setFormData({ name: "", email: "", message: "" }); // Reset form data
+        },
+        (error) => {
+          toast.error("Failed to send message. Please try again.");
+          console.error("EmailJS Error:", error);
+        }
+      );
   };
 
   return (
     <div className="bg-gray-100 w-11/12 py-5 my-5 mx-auto">
       <div className="max-w-screen-xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-purple-600 mb-4">
           Contact Us
         </h2>
         <p className="text-gray-600 text-base sm:text-lg mb-6">
