@@ -37,6 +37,41 @@ const Navbar = () => {
           All Reviews
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "text-accent font-bold" : ""
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? "text-accent font-bold" : ""
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
+      {!user && (
+        <>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive ? "text-accent font-bold" : ""
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+        </>
+      )}
+
       {user && (
         <>
           <li>
@@ -122,7 +157,7 @@ const Navbar = () => {
 
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-0">{links}</ul>
+          <ul className="pl-2 flex gap-4">{links}</ul>
         </div>
 
         {/* Navbar End */}
@@ -156,12 +191,12 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <button
+              {/* <button
                 onClick={() => navigate("/login")}
                 className="btn btn-secondary"
               >
                 Login
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/register")}
                 className="btn hidden md:block btn-accent bg-[#3F00E7] text-white"
