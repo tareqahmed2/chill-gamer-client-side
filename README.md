@@ -147,8 +147,9 @@ Chill Gamer is a user-friendly game review platform that allows users to explore
 
 ## Live Links
 
-- **Live Website:** [https://chill-gamer.netlify.app](#)
-- **Client-side Repository:** [GitHub Client](#)
-- **Server-side Repository:** [https://github.com/tareqahmed2/chill-gamer-server-site](#)
+- **Live Website:** [https://chill-gamer.netlify.app](https://chill-gamer.netlify.app)
+- **Client-side Repository:** [GitHub Client](https://github.com/tareqahmed2/chill-gamer-client-side)
+- **Server-side Repository:** [GitHub Server](https://github.com/tareqahmed2/chill-gamer-server-side)
+
 
 ---
