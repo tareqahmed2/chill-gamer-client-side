@@ -95,8 +95,8 @@ Chill Gamer is a user-friendly game review platform that allows users to explore
 1. Clone the repositories:
 
    ```bash
-   git clone https://github.com/tareqahmed2/chill-gamer
-   git clone https://github.com/tareqahmed2/chill-gamer-server-site
+   git clone https://github.com/tareqahmed2/chill-gamer-client-side
+   git clone https://github.com/tareqahmed2/chill-gamer-server-side
    ```
 
 2. Navigate to the client-side directory:
